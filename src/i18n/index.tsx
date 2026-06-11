@@ -22,7 +22,7 @@ import { en } from './en';
 import { es } from './es';
 import { fr } from './fr';
 
-export type LangCode = 'it' | 'en' | 'es' | 'fr';
+export type LangCode = 'en' | 'es' | 'fr';
 
 export interface LangMeta {
   code: LangCode;
@@ -32,7 +32,6 @@ export interface LangMeta {
 }
 
 export const LANGUAGES: LangMeta[] = [
-  { code: 'it', flag: 'it', label: 'Italiano' },
   { code: 'en', flag: 'gb', label: 'English' },
   // { code: 'es', flag: 'es', label: 'Español' },   // TODO: finish translation
   // { code: 'fr', flag: 'fr', label: 'Français' },  // TODO: finish translation
