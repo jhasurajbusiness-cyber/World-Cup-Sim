@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="pGE_SS0mJkIN4rkq7p-2-OqGk13opoOFfWt7EwlrfBc" />
+    <title>World Cup Multiverse — Simulate alternate football realities</title>
+    <meta
+      name="description"
+      content="Simulate the 2026 World Cup with Monte Carlo. What if Italy were there? Explore thousands of alternate football realities, all in your browser."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="World Cup Multiverse — Simulate alternate football realities" />
+    <meta
+      property="og:description"
+      content="Italy didn't qualify for the 2026 World Cup. So I put them back in. Monte Carlo simulator, 100,000 runs, all in the browser."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Preload prima foto slideshow Italia per evitare blank iniziale -->
+    <link rel="preload" as="image" href="/images/italy/1.webp" />
+
+    <!-- Analytics placeholder (Umami) — riempire data-website-id e src al deploy -->
+    <!-- <script defer src="https://cloud.umami.is/script.js" data-website-id="REPLACE_ME"></script> -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
