@@ -1,4 +1,4 @@
-export default function HowItWorks() {
+export function HowItWorks() {
   return (
     <div className="how-it-works">
 
