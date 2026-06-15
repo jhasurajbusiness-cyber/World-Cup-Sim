@@ -600,14 +600,7 @@ export function App() {
       {/* ── OVERLAY: How it works ── */}
       {openCard === 'howto' && (
         <CardOverlay title={t('overlay.howto.title')} icon={CARD_ICONS.howto} onClose={() => setOpenCard(null)}>
-          <HowItWorks
-            modulators={modulators}
-            onOpenAdmin={() => { setOpenCard(null); setTimeout(() => setAdminOpen(true), 80); }}
-            teams={data.teams}
-            params={data.params}
-            h2h={data.h2h}
-            teamStats={data.teamStats}
-          />
+          <HowItWorks />
         </CardOverlay>
       )}
 

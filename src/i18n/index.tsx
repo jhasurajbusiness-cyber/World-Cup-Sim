@@ -22,7 +22,7 @@ import { en } from './en';
 import { es } from './es';
 import { fr } from './fr';
 
-export type LangCode = 'en' | 'es' | 'fr';
+export type LangCode = 'it' | 'en' | 'es' | 'fr';
 
 export interface LangMeta {
   code: LangCode;
