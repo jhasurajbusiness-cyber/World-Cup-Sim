@@ -22,8 +22,8 @@ export function HowItWorks({ onOpenAdmin: _onOpenAdmin }: { onOpenAdmin?: () => 
             <p className="hiw-p">{t('hiw.creator.p3')}</p>
             <p className="hiw-p">{t('hiw.creator.p4')}</p>
             <div className="hiw-creator-buttons">
-              <a className="hiw-creator-btn hiw-creator-btn--linkedin" href="https://www.linkedin.com/in/surajjha" target="_blank" rel="noopener noreferrer">{t('hiw.creator.linkedin')}</a>
-              <a className="hiw-creator-btn hiw-creator-btn--email" href="mailto:suraj@example.com">{t('hiw.creator.contact')}</a>
+              <a className="hiw-creator-btn hiw-creator-btn--linkedin" href="https://www.linkedin.com/in/surajjhx" target="_blank" rel="noopener noreferrer">{t('hiw.creator.linkedin')}</a>
+              <a className="hiw-creator-btn hiw-creator-btn--email" href="mailto:suraj.jha@alumni.esade.edu">{t('hiw.creator.contact')}</a>
             </div>
           </div>
         </div>
