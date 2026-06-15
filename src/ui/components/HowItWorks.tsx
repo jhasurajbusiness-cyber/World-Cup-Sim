@@ -1,134 +1,177 @@
-export function HowItWorks() {
+import { useT } from '../../i18n';
+
+
+
+export function HowItWorks({ onOpenAdmin: _onOpenAdmin }: { onOpenAdmin?: () => void }) {
+  const { t } = useT();
+  
+
   return (
-    <div className="how-it-works">
+    <div className="hiw-stack">
 
-      <section className="hiw-section">
-        <h2>About this project</h2>
-        <p>
-          I'm a product manager with a deep interest in sports analytics and AI.
-          As someone who has followed the Italian national team for years — through
-          the highs, the lows, and the inexplicable playoff exits — I kept coming
-          back to the same question: what are we actually losing by not having Italy
-          at the World Cup?
-        </p>
-        <p>
-          Rather than debating it with friends over dinner, I built a simulation
-          engine and let the data do the talking. This project sits at the
-          intersection of football analytics, probability modeling, software
-          engineering, and product thinking. It started as a curiosity and turned
-          into something I'm genuinely proud of.
-        </p>
-        <p>
-          If you want to share feedback, swap ideas, or just talk football —
-          feel free to reach out.
-        </p>
-      </section>
-
-      <section className="hiw-section">
-        <h2>What you can do here</h2>
-        <div className="hiw-cards">
-          <div className="hiw-card">
-            <h3>Realistic Mode</h3>
-            <p>Simulate the tournament using current team strengths, form, and attacking and defensive ratings.</p>
+      <div className="hiw-stack-pane">
+        <div className="hiw-article">
+          <div className="hiw-hero">
+            <p className="hiw-eyebrow">{t('hiw.creator.eyebrow')}</p>
+            <h1 className="hiw-h1">{t('hiw.creator.h1')}</h1>
+            <p className="hiw-deck"><em>{t('hiw.creator.intro')}</em> {t('hiw.creator.p1')}</p>
           </div>
-          <div className="hiw-card">
-            <h3>Italy Mode</h3>
-            <p>Put Italy back in the draw and see how often the Azzurri reach the knockout stages, the final, or go all the way.</p>
-          </div>
-          <div className="hiw-card">
-            <h3>What-If Scenarios</h3>
-            <p>Build alternative realities — injuries, suspensions, players in peak form. Stack modifiers and share the scenario via URL.</p>
-          </div>
-          <div className="hiw-card">
-            <h3>Team Comparison</h3>
-            <p>Pick any two nations and get a direct head-to-head probability breakdown, expected goals, and historical record.</p>
+          <div className="hiw-divider" />
+          <div className="hiw-section">
+            <p className="hiw-p">{t('hiw.creator.p2')}</p>
+            <p className="hiw-p">{t('hiw.creator.p3')}</p>
+            <p className="hiw-p">{t('hiw.creator.p4')}</p>
+            <div className="hiw-creator-buttons">
+              <a className="hiw-creator-btn hiw-creator-btn--linkedin" href="https://www.linkedin.com/in/surajjha" target="_blank" rel="noopener noreferrer">{t('hiw.creator.linkedin')}</a>
+              <a className="hiw-creator-btn hiw-creator-btn--email" href="mailto:suraj@example.com">{t('hiw.creator.contact')}</a>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section className="hiw-section">
-        <h2>How the simulation works</h2>
-        <p>
-          Every time you hit Simulate, the engine runs 100,000 complete World Cups —
-          group stage, best third-placed teams, Round of 32 through to the final —
-          entirely in your browser in roughly half a second. No server, no API, no data
-          leaving your device.
-        </p>
-        <p>
-          Each match is modelled using a bivariate Poisson distribution with a
-          Dixon-Coles correction, computing the probability of every possible scoreline
-          up to 7 goals per side. The winner is drawn from those probabilities — the
-          favourite doesn't advance automatically. In any single run, Bolivia can beat
-          France. Unlikely, but not impossible.
-        </p>
-        <p>
-          The final percentages are empirical frequencies: if France appears as champion
-          in 28,000 of 100,000 runs, their win probability is 28%. The animated bracket
-          shows one possible tournament — not the average outcome, not the most likely one.
-        </p>
-      </section>
+      <div className="hiw-stack-divider" />
 
-      <section className="hiw-section">
-        <h2>The Strength Score</h2>
-        <p>
-          Every team gets a Strength Score — a 0 to 100 index combining six signals,
-          each weighted by how reliably it predicts match outcomes.
-        </p>
-        <ul className="hiw-list">
-          <li><strong>Elo rating</strong> — the strongest predictor, built on decades of international results</li>
-          <li><strong>Attack and Defense</strong> — estimated via a hierarchical Bayesian model trained on ~49,000 matches</li>
-          <li><strong>Recent form</strong> — last 30 matches, time-decay weighted, deliberately kept at low weight since it's a noisy signal</li>
-          <li><strong>Knockout experience</strong> — historical performance in single-elimination rounds, applied only in KO matches</li>
-          <li><strong>Squad value</strong> — market value as a secondary proxy for squad depth</li>
-          <li><strong>Head-to-head record</strong> — adjusts goal probabilities by ±1–3pp based on historical matchup data since 1994</li>
-        </ul>
-      </section>
+      <div className="hiw-stack-pane">
+        <div className="hiw-article">
 
-      <section className="hiw-section">
-        <h2>What-If scenarios</h2>
-        <p>
-          The what-if modifiers are openly labelled as heuristics — they're not part of
-          the predictive model and aren't calibrated to the same precision. They're
-          designed to be playful and exploratory: form boosts, injury penalties, a chaos
-          factor that makes the whole tournament more unpredictable.
-        </p>
-        <p>
-          Every scenario is encoded in the URL, so you can share exactly what you've
-          built with anyone.
-        </p>
-      </section>
+          <div className="hiw-hero">
+            <p className="hiw-eyebrow">{t('hiw.eyebrow')}</p>
+            <h1 className="hiw-h1">{t('hiw.h1')}</h1>
+            <p className="hiw-deck">{t('hiw.deck')}</p>
+          </div>
 
-      <section className="hiw-section">
-        <h2>What this is not</h2>
-        <p>
-          This is not a live prediction platform. The underlying data — Elo ratings,
-          squad values, the official group draw — are snapshots from June 2026. They
-          don't update automatically and don't account for last-minute injuries, tactical
-          decisions, or anything that happens after the data was collected.
-        </p>
-        <p>
-          It's a personal project driven by genuine curiosity about what the numbers say.
-          If you use it to place bets, that's entirely on you.
-        </p>
-      </section>
+          <div className="hiw-divider" />
 
-      <section className="hiw-section">
-        <h2>Disclaimer</h2>
-        <p>
-          This is an independent fan-made analytics project. It is not affiliated with,
-          endorsed by, or connected to FIFA or any national football association. All
-          team names and tournament references remain the property of their respective
-          owners.
-        </p>
-      </section>
+          <div className="hiw-section">
+            <p className="hiw-section-label">{t('hiw.story.label')}</p>
+            <h2 className="hiw-h2">{t('hiw.story.h2')}</h2>
+            <p className="hiw-p">{t('hiw.story.p1')}</p>
+            <p className="hiw-p">{t('hiw.story.p2')}</p>
+            <p className="hiw-p">{t('hiw.story.p3')}</p>
+            <blockquote className="hiw-callout">{t('hiw.story.callout')}</blockquote>
+          </div>
 
-      <section className="hiw-section">
-        <h2>Privacy</h2>
-        <p>
-          No registration required. No personal data collected beyond standard
-          anonymised analytics used to improve the platform.
-        </p>
-      </section>
+          <div className="hiw-divider" />
+
+          <div className="hiw-section">
+            <p className="hiw-section-label">{t('hiw.what.label')}</p>
+            <h2 className="hiw-h2">{t('hiw.what.h2')}</h2>
+            <p className="hiw-p">{t('hiw.what.intro')}</p>
+            <div className="hiw-indicators">
+              <div className="hiw-indicator">
+                <div className="hiw-ind-head"><span className="hiw-ind-dot" style={{background:'var(--green)'}} /><strong>{t('hiw.what.realistic.title')}</strong></div>
+                <p>{t('hiw.what.realistic.body')}</p>
+              </div>
+              <div className="hiw-indicator">
+                <div className="hiw-ind-head"><span className="hiw-ind-dot" style={{background:'var(--italy)'}} /><strong>{t('hiw.what.italy.title')}</strong></div>
+                <p>{t('hiw.what.italy.body')}</p>
+              </div>
+              <div className="hiw-indicator">
+                <div className="hiw-ind-head"><span className="hiw-ind-dot" style={{background:'var(--amber)'}} /><strong>{t('hiw.what.whatif.title')}</strong></div>
+                <p>{t('hiw.what.whatif.body')}</p>
+              </div>
+              <div className="hiw-indicator">
+                <div className="hiw-ind-head"><span className="hiw-ind-dot" style={{background:'var(--cyan)'}} /><strong>{t('hiw.what.compare.title')}</strong></div>
+                <p>{t('hiw.what.compare.body')}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="hiw-divider" />
+
+          <div className="hiw-section">
+            <p className="hiw-section-label">03</p>
+            <h2 className="hiw-h2">{t('hiw.s1.h2')}</h2>
+            <p className="hiw-p">{t('hiw.s1.p1')}</p>
+            <p className="hiw-p">{t('hiw.s1.p2')}</p>
+            <blockquote className="hiw-callout">{t('hiw.s1.callout')}</blockquote>
+            <p className="hiw-p">{t('hiw.s1.p3')}</p>
+          </div>
+
+          <div className="hiw-divider" />
+
+          <div className="hiw-section">
+            <p className="hiw-section-label">04</p>
+            <h2 className="hiw-h2">{t('hiw.s2.h2')}</h2>
+            <p className="hiw-p">{t('hiw.s2.p1')}</p>
+            <div className="hiw-indicators">
+              <div className="hiw-indicator">
+                <div className="hiw-ind-head"><span className="hiw-ind-dot" style={{background:'#4a9eff'}} /><strong>{t('hiw.ind.elo.title')}</strong></div>
+                <p>{t('hiw.ind.elo.body')}</p>
+                <div className="hiw-source"><span className="hiw-source-tag">{t('hiw.source')}</span><span className="hiw-source-text">{t('hiw.ind.elo.source')}</span></div>
+              </div>
+              <div className="hiw-indicator">
+                <div className="hiw-ind-head"><span className="hiw-ind-dot" style={{background:'var(--green)'}} /><strong>{t('hiw.ind.atkdef.title')}</strong></div>
+                <p>{t('hiw.ind.atkdef.body')}</p>
+                <div className="hiw-source"><span className="hiw-source-tag">{t('hiw.source')}</span><span className="hiw-source-text">{t('hiw.ind.atkdef.source')}</span></div>
+              </div>
+              <div className="hiw-indicator">
+                <div className="hiw-ind-head"><span className="hiw-ind-dot" style={{background:'var(--amber)'}} /><strong>{t('hiw.ind.form.title')}</strong></div>
+                <p>{t('hiw.ind.form.body')}</p>
+                <div className="hiw-source"><span className="hiw-source-tag">{t('hiw.source')}</span><span className="hiw-source-text">{t('hiw.ind.form.source')}</span></div>
+              </div>
+              <div className="hiw-indicator">
+                <div className="hiw-ind-head"><span className="hiw-ind-dot" style={{background:'#a78bfa'}} /><strong>{t('hiw.ind.ko.title')}</strong></div>
+                <p>{t('hiw.ind.ko.body')}</p>
+                <div className="hiw-source"><span className="hiw-source-tag">{t('hiw.source')}</span><span className="hiw-source-text">{t('hiw.ind.ko.source')}</span></div>
+              </div>
+              <div className="hiw-indicator">
+                <div className="hiw-ind-head"><span className="hiw-ind-dot" style={{background:'var(--amber)'}} /><strong>{t('hiw.ind.value.title')}</strong></div>
+                <p>{t('hiw.ind.value.body')}</p>
+                <div className="hiw-source"><span className="hiw-source-tag">{t('hiw.source')}</span><span className="hiw-source-text">{t('hiw.ind.value.source')}</span></div>
+                <div className="hiw-postilla"><strong>Note · Italy:</strong> {t('hiw.ind.value.note')}</div>
+              </div>
+              <div className="hiw-indicator">
+                <div className="hiw-ind-head"><span className="hiw-ind-dot" style={{background:'var(--cyan)'}} /><strong>{t('hiw.ind.h2h.title')}</strong></div>
+                <p>{t('hiw.ind.h2h.body')}</p>
+                <div className="hiw-source"><span className="hiw-source-tag">{t('hiw.source')}</span><span className="hiw-source-text">{t('hiw.ind.h2h.source')}</span></div>
+              </div>
+            </div>
+           
+          </div>
+
+          <div className="hiw-divider" />
+
+          <div className="hiw-section">
+            <p className="hiw-section-label">05</p>
+            <h2 className="hiw-h2">{t('hiw.s3.h2')}</h2>
+            <p className="hiw-p">{t('hiw.s3.p1')}</p>
+            <p className="hiw-p">{t('hiw.s3.p2')}</p>
+            <blockquote className="hiw-callout hiw-callout--amber">{t('hiw.s3.callout')}</blockquote>
+          </div>
+
+          <div className="hiw-divider" />
+
+          <div className="hiw-section">
+            <p className="hiw-section-label">06</p>
+            <h2 className="hiw-h2">{t('hiw.s4.h2')}</h2>
+            <p className="hiw-p">{t('hiw.s4.p1')}</p>
+            <p className="hiw-p">{t('hiw.s4.p2')}</p>
+            <p className="hiw-p">{t('hiw.s4.p3.pre')}<a className="hiw-contact-link" href="mailto:suraj@example.com">{t('hiw.s4.p3.link')}</a>{t('hiw.s4.p3.post')}</p>
+            <p className="hiw-p">{t('hiw.s4.p4')}</p>
+            <blockquote className="hiw-callout hiw-callout--muted">{t('hiw.s4.callout')}</blockquote>
+          </div>
+
+          <div className="hiw-divider" />
+
+          <div className="hiw-section">
+            <p className="hiw-section-label">{t('hiw.disclaimer.label')}</p>
+            <h2 className="hiw-h2">{t('hiw.disclaimer.h2')}</h2>
+            <p className="hiw-p">{t('hiw.disclaimer.p1')}</p>
+            <p className="hiw-p">{t('hiw.disclaimer.p2')}</p>
+            <p className="hiw-p">{t('hiw.disclaimer.p3')}</p>
+          </div>
+
+          <div className="hiw-divider" />
+
+          <div className="hiw-section">
+            <p className="hiw-section-label">{t('hiw.privacy.label')}</p>
+            <h2 className="hiw-h2">{t('hiw.privacy.h2')}</h2>
+            <p className="hiw-p">{t('hiw.privacy.p1')}</p>
+          </div>
+
+        </div>
+      </div>
 
     </div>
   );
